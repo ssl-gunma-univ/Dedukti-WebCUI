@@ -7,37 +7,38 @@ header('Content-Type: text/plain; charset=UTF-8');
 
 putenv('LANG=C.UTF-8');
 
+
 if ($_POST['path'] == null) {
   $dirs = array(
     array(
       'name' => 'filebody',
       'display' => 'OK',
-      'dir' => './tests/OK'
+      'dir' => '/var/www/html/webcui/dedukti-examples/OK'
     ),
     array(
       'name' => 'filebody',
       'display' => 'KO',
-      'dir' => './tests/KO'
+      'dir' => '/var/www/html/webcui/dedukti-examples/KO'
     ),
     array(
       'name' => 'filebody',
       'display' => 'LIB',
-      'dir' => './tests/LIB'
+      'dir' => '/var/www/html/webcui/dedukti-examples/LIB'
     ),
     array(
       'name' => 'filebody',
       'display' => 'meta',
-      'dir' => './tests/meta'
+      'dir' => '/var/www/html/webcui/dedukti-examples/meta'
     ),
     array(
       'name' => 'filebody',
       'display' => 'meta_files',
-      'dir' => './tests/meta_files'
+      'dir' => '/var/www/html/webcui/dedukti-examples/meta_files'
     ),
     array(
       'name' => 'filebody',
       'display' => 'universo',
-      'dir' => './tests/universo'
+      'dir' => '/var/www/html/webcui/dedukti-examples/universo'
     )
   );
 
