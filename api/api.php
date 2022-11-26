@@ -52,10 +52,10 @@ switch ($command) {
     break;
 }
 
-$cmd = '/home/t190d117/.opam/default/bin/dk ' . $command . $option . $tmpfile . ' 2>&1';
+$cmd = '/home/hiroto/.opam/default/bin/dk ' . $command . $option . $tmpfile . ' 2>&1';
 
 echo $command . "<br>";
-echo "<font color=\"red\">&gt; " . $cmd . "</font><br>";
+echo "<font color=\"green\">&gt; " . $cmd . "</font><br>";
 exec($cmd, $output, $result_code); //実行
 exec('rm ./tmp/tempfile.dk');
 
