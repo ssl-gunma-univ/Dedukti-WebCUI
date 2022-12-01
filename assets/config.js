@@ -5,7 +5,8 @@ export const config = {
 
   address: '/webcui/dedukti',      // http://localhost:3000/[address]
 
-  webApiUrl: `http://solweb.mydns.jp/webcui/dedukti/api/api.php`,//`http://localhost:80/webcui/dedukti/api/api.php`, //
+  webApiUrl: `http://solweb.mydns.jp/webcui/dedukti/api/api.php`,
+             //`http://localhost:80/webcui/dedukti/api/api.php`,
 
   consoleLocation: 'right',    // Placing the console. [left | right | top | bottom]
   toolbarLocation: 'left',   // Placing the toolbar. [left | right]
@@ -38,7 +39,8 @@ export const config = {
       enable: true,
       icon: 'mdi-file-multiple',
       text: 'Examples',
-      webApiUrl: 'http://solweb.mydns.jp/webcui/dedukti/api/files.php', //'http://localhost:80/webcui/dedukti/api/files.php', //
+      webApiUrl: 'http://solweb.mydns.jp/webcui/dedukti/api/files.php',
+                 //'http://localhost:80/webcui/dedukti/api/files.php',
     },
     variables: {
       enable: false,
