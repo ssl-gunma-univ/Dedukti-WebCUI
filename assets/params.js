@@ -4,7 +4,7 @@ export const params = {
     type: 'file',
     target: 'filebody',
     default: [],
-    size: 'whole'
+    size: 'half'
   },
 
   //command
@@ -21,7 +21,7 @@ export const params = {
       { name: 'top',       display: 'top',       flag: 'top' }
     ],
     default: { name: 'check', display: 'check' },
-    size: 'whole'
+    size: 'half'
   },
   //common option
   help:    { display: '--help',     type: 'check',  default: false,  size: 4 },
