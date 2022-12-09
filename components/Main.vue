@@ -38,7 +38,12 @@
                       parseInt(param.size) : 12
                   "
                   cols="12"
-                  :class="param.hasOwnProperty('type') ? 'py-0' : 'pa-0'"
+                  :class="{
+                    'py-0' : param.hasOwnProperty('type'),
+                    'pa-0' : !param.hasOwnProperty('type'),
+                    'py-2' : param.type === 'textarea',
+                    'py-1' : param.type === 'file'
+                  }"
                 >
                   <v-text-field
                     v-if="param.type === 'text'"
@@ -136,6 +141,20 @@
                     dense
                     :disabled="param.hasOwnProperty('if') && !isFlag(param.if)"
                   ></v-file-input>
+                  <v-alert
+                    v-if="param.type === 'filename'"
+                  >
+                    {{filename}}
+                  </v-alert>
+                  <v-text-field
+                    v-if="param.type === 'filename2'"
+                    :label="param.display"
+                    :value="param.value"
+                    readonly
+                    spellcheck="false"
+                    hide-details
+                    :disabled="param.hasOwnProperty('if') && !isFlag(param.if)"
+                  ></v-text-field>
                 </v-col>
               </v-row>
             </v-list-item-content>
@@ -195,7 +214,7 @@ export default {
     consoleHeight: 0
   }),
   computed: {
-    ...mapState(['params', 'console']),
+    ...mapState(['params', 'console', 'filename']),
     ...mapGetters(['isFlag'])
   },
   watch: {
@@ -208,7 +227,7 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(['updateParam']),
+    ...mapMutations(['updateParam', 'setFilename']),
     ...mapActions(['displayExceptionMsg']),
     fileChange(param, key, value) {
       const reader = new FileReader()
