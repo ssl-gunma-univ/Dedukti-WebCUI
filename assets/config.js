@@ -29,7 +29,8 @@ export const config = {
     },
     history: {
       enable: true,
-      icon: 'mdi-history'
+      icon: 'mdi-history',
+      text: 'History'
     },
     examples: {
       enable: false,
@@ -46,11 +47,27 @@ export const config = {
       enable: false,
       icon: 'mdi-order-alphabetical-ascending'
     },
+    help: {
+      enable: true,
+      icon: 'mdi-help',
+      text: 'Help',
+      method: (webcui) => {
+        webcui.sendReq(
+          (webcui) => {
+            webcui.updateParam({ key: 'help', value: { value: true } })
+            webcui.clearConsole()
+          },
+          (webcui, result) => {
+            webcui.addLine({ html: result })
+          })
+      }
+    },
     sendReq: {
       enable: true,
       icon: 'mdi-play',
       text: 'Check',
       before: (webcui) => {
+        webcui.updateParam({ key: 'help', value: { value: false } })
         webcui.clearConsole();
       },
       after: (webcui, result) => {
