@@ -1,4 +1,6 @@
 export const params = {
+  help: { default: false },
+
   file:{
     display: 'File',
     type: 'file',
@@ -23,10 +25,9 @@ export const params = {
     default: { name: 'check', display: 'check' },
     size: 'half'
   },
+
   //common option
-  help:    { display: '--help',     type: 'check',  default: false,  size: 4 },
-  version: { display: '--version',  type: 'check',  default: false,  size: 4 },
-  verbose: { display: '--verbose',  type: 'check',  default: false,  size: 4 },
+  verbose: { display: '--verbose',  type: 'check',  default: false,  size: 12 },
   //check option
   coc:     { display: '--coc',            type: 'check',  default: false,  size: 2, if: 'check' },
   db:      { display: '--db',             type: 'check',  default: false,  size: 2, if: 'check' },
@@ -49,6 +50,7 @@ export const params = {
     type: 'textarea',
     rows: 20,
     default: '',
-    size: 'whole'
+    size: 'whole',
+    monospace: true
   }
 }

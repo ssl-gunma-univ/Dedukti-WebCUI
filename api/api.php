@@ -22,7 +22,6 @@ fclose($fp);
 //common option
 $option = ' --no-color ';
 if ($_POST['help'] === 'true')    { $option .= '--help ';    $tmpfile = ''; }
-if ($_POST['version'] === 'true') { $option .= '--version '; $tmpfile = ''; }
 if ($_POST['verbose'] === 'true') { $option .= '--verbose '; }
 
 switch ($command) {
@@ -54,11 +53,12 @@ switch ($command) {
 
 $cmd = '/home/hiroto/.opam/default/bin/dk ' . $command . $option . $tmpfile . ' 2>&1';
 
-echo "<font color=\"green\">&gt; " . $cmd . "</font><br>";
-exec($cmd, $output, $result_code); //実行
+//echo "<font color=\"green\">&gt; " . $cmd . "</font><br>";
+//CUIプログラムを実行
+exec($cmd, $output, $result_code);
 exec('rm ./tmp/tempfile.dk');
 
-//表示
+//結果表示
 printOutput($output);
 
 switch($result_code){
@@ -72,6 +72,5 @@ switch($result_code){
     echo "<font color=\"red\">unexpected internal errors (bugs).</font>";
     break;
 }
-echo '<br>';
 
 ?>
